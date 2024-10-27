@@ -2,13 +2,14 @@ package com;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Properties;
 
 public class FabricaConexao {
 
     private static  Connection conexao;
 
-    public static  void  connectar(){
+    public static  void  connectar() throws SQLException{
  
         if( conexao == null){
 
@@ -18,12 +19,12 @@ public class FabricaConexao {
             props.setProperty("user", "postgres");
             props.setProperty("password", "203040");
             //props.setProperty("ssl", "true");
-            Connection conexao = DriverManager.getConnection(url, props);
+            conexao = DriverManager.getConnection(url, props);
             System.out.println(" conectado ... !");
 
         
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (NullPointerException e) {
+            System.out.println("conexao negada  " + e);
         }
 
         
