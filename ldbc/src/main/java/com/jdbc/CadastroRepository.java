@@ -75,6 +75,7 @@ public class CadastroRepository {
             System.out.println("nenhum paremetro foi recebido  " + e);
         }
         
+        
     };
     public List<Cadastro> listar() throws SQLException{
 
@@ -130,7 +131,7 @@ public class CadastroRepository {
                 cadastro.setNome(nome);
                 cadastro.setIdade(idade);
 
-                
+                System.out.println(id + " " +nome + " " + idade );
                 
             }
            
